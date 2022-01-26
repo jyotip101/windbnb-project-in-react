@@ -1,7 +1,10 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">Windbnb App 
-    <img src="../src/logos/logo.png" alt=""> </h1>
+<h1 align="center">  
+    
+![logo](https://user-images.githubusercontent.com/66724598/151010226-efd162e6-3856-4b6d-b718-1d7a9fb4fda5.png)
+
+</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
