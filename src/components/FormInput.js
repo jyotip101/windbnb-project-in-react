@@ -1,27 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useGlobalContext } from './Context'
 
-const FormInput = ({
-  city,
-  guest,
-  setCity,
-  setGuest,
-  guests,
-  guestsNumber,
-}) => {
-  const { openSubMenuCityLinks, openSubMenuGuestLinks } = useGlobalContext()
+const FormInput = ({ city, setCity, guestsNumber }) => {
+  const {
+    openSubMenuCityLinks,
+    closeSubMenu,
+    openSubMenuGuestLinks,
+    filterData,
+  } = useGlobalContext()
 
+  const submitHandler = (e) => {
+    e.preventDefault()
+    filterData(city, guestsNumber)
+    closeSubMenu()
+  }
   return (
     <>
       <form
-        // onMouseOver={openSubMenu}
-        // onSubmit={submitHandler}
-        className='grid   transition md:grid-cols-3  rounded-2xl grid-cols-1 border-0     sm:my-auto '
+        onSubmit={submitHandler}
+        className='grid transition md:grid-cols-3 rounded-2xl grid-cols-1 border-0 sm:my-auto '
       >
-        <div className='w-[90%] md:border-2 md:rounded-[14px]  border-2 border-b-0 rounded-t-[14px]  text-[#000] outline-none md:m-4 px-[1rem]  py-2 sm:mb-0 sm:ml-4'>
+        <div className='w-[90%] md:border-2 md:rounded-[14px] border-2 border-b-0 rounded-t-[14px] text-[#000] outline-none md:m-4 px-[1rem] py-2 sm:mb-0 sm:ml-4'>
           <label
             htmlFor='city'
-            className='text-[#000] text-[16px]  uppercase font-medium'
+            className='text-[#000] text-[16px] uppercase font-medium'
           >
             Location
           </label>
@@ -36,10 +38,10 @@ const FormInput = ({
           />
         </div>
 
-        <div className='w-[90%] md:border-2 md:rounded-[14px] border-2 text-[#000] outline-none md:m-4 sm:ml-4 sm:mb-4 px-[1rem] rounded-t-none rounded-b-[14px] py-2 sm:border-t-0'>
+        <div className='w-[90%] md:border-2 md:rounded-[14px] border-2 text-[#000] outline-none md:m-4 sm:ml-4 sm:mb-4 px-[1rem] rounded-t-none rounded-b-[14px] py-2 sm:border-t-2'>
           <label
             htmlFor='guest'
-            className='text-[#000] text-[16px]  uppercase font-medium'
+            className='text-[#000] text-[16px] uppercase font-medium'
           >
             Guests
           </label>
@@ -52,7 +54,7 @@ const FormInput = ({
             placeholder='Add guests'
             name='guest'
             value={guestsNumber === 0 ? 'Add guests' : guestsNumber}
-            // onChange={(e) => setGuestsNumber(e.target.value)}
+            readOnly
           />
         </div>
 

@@ -1,21 +1,13 @@
 import React from 'react'
 
 const SingleCard = ({ item }) => {
-  const {
-    city,
-    country,
-    superHost,
-    title,
-    id,
-    rating,
-    maxGuests,
-    type,
-    beds,
-    photo,
-  } = item
+  const { superHost, title, rating, type, beds, photo } = item
   return (
-    <div className='flex justify-center   flex-col m-4 mb-8 max-w-[350px] w-fit'>
-      <img src={photo} alt={title} className='w-fit rounded-[24px]' />
+    <div className='flex justify-center bg-white flex-col m-4 mb-8 sm:max-w-[400px] md:max-w-[350px] w-fit'>
+      <div className='w-auto md:h-[230px] sm:h-[250px] overflow-hidden rounded-[24px]'>
+        <img src={photo} alt={title} className='w-fit' />
+      </div>
+
       <div className='flex flex-row justify-between  my-3'>
         <div className='flex   justify-center items-center'>
           {superHost && (

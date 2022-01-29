@@ -12,9 +12,9 @@
 
 <div align="center">
   <h3>
-    <!-- <a href="https://{your-demo-link.your-domain}"> -->
+    <a href="https://http://jyotip101.github.io/windbnb-project-in-react">
       Demo
-    <!-- </a> -->
+    </a>
     <span> | </span>
     <!-- <a href="https://{your-url-to-the-solution}"> -->
       Solution

@@ -3,28 +3,14 @@ import FormInput from './FormInput'
 import { useGlobalContext } from './Context'
 
 const Submenus = ({ items }) => {
-  const {
-    isSubMenuOpen,
-    openSubMenu,
-    closeSubMenu,
-    isSubMenuLinkCityOpen,
-    isSubMenuLinkGuestOpen,
-  } = useGlobalContext()
+  const { closeSubMenu, isSubMenuLinkCityOpen, isSubMenuLinkGuestOpen } =
+    useGlobalContext()
 
+  let guestsNumber
   const [city, setCity] = useState('')
-  const [guest, setGuest] = useState('')
   const [childNumber, setChildNumber] = useState(0)
   const [adultsNumber, setAdultsNumber] = useState(0)
-  // const [guestsNumber, setGuestsNumber] = useState(adultsNumber + childNumber)
 
-  const checkNumberOfGuest = (num) => {
-    if (num < 1) {
-      num = 0
-    }
-    if (num >= 10) {
-      num = 10
-    }
-  }
   return (
     <>
       <div className='flex flex-col h-46 absolute top-0 left-0 w-full z-10 shadow  pt-8 bg-[#fff] p-4 transition-all '>
@@ -39,11 +25,8 @@ const Submenus = ({ items }) => {
         </button>
         <FormInput
           city={city}
-          guest={guest}
           setCity={setCity}
-          setGuest={setGuest}
-          guestsNumber={adultsNumber + childNumber}
-          // setGuestsNumber={setGuestsNumber}
+          guestsNumber={(guestsNumber = adultsNumber + childNumber)}
         />
         <div className='flex sm:flex-row flex-col ml-4 '>
           <div className='w-[50%] transition'>
@@ -54,7 +37,6 @@ const Submenus = ({ items }) => {
                     <button
                       onClick={() => {
                         setCity(item)
-                        // setGuest(item.split(', ')[1])
                       }}
                       key={index}
                       className='text-[#4F4F4F] transition  my-8 w-max   flex cursor-pointer hover:text-[#eb5757]'
@@ -68,7 +50,7 @@ const Submenus = ({ items }) => {
             )}
           </div>
 
-          <div className='md:w-[50%]  '>
+          <div className='md:w-[100%]   '>
             {isSubMenuLinkGuestOpen && (
               <>
                 <div className=' '>

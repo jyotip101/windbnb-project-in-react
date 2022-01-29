@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import CardsList from './components/CardsList'
 import Header from './components/Header'
 import { AppProvider } from './components/Context'
@@ -27,4 +26,3 @@ function App() {
 }
 
 export default App
-// material-icons/

@@ -1,11 +1,12 @@
 import React, { useState, useContext } from 'react'
-
+import Data from './stays.json'
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false)
   const [isSubMenuLinkCityOpen, setIsSubMenuLinkCityOpen] = useState(true)
   const [isSubMenuLinkGuestOpen, setIsSubMenuLinkGuestOpen] = useState(false)
+  const [data, setData] = useState(Data)
 
   const openSubMenu = () => {
     setIsSubMenuOpen(true)
@@ -30,6 +31,26 @@ const AppProvider = ({ children }) => {
     setIsSubMenuLinkGuestOpen(true)
   }
 
+  const filterData = (CityName, Guests) => {
+    if (CityName !== '' && Guests === 0) {
+      let filterData = Data.filter(
+        (item) => item.city === CityName.split(', ')[0]
+      )
+      setData(filterData)
+    }
+    if (CityName === '' && Guests !== 0) {
+      let filterData = Data.filter((item) => item.maxGuests <= Guests)
+      setData(filterData)
+    }
+
+    if (CityName !== '' && Guests !== 0) {
+      let filterData = Data.filter((item) => {
+        return item.city === CityName.split(', ')[0] && item.maxGuests <= Guests
+      })
+      setData(filterData)
+    }
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -40,6 +61,8 @@ const AppProvider = ({ children }) => {
         openSubMenuCityLinks,
         isSubMenuLinkGuestOpen,
         openSubMenuGuestLinks,
+        data,
+        filterData,
       }}
     >
       {children}
