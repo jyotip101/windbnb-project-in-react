@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useGlobalContext } from './Context'
 
-const FormInput = () => {
+const FormInput = ({
+  city,
+  guest,
+  setCity,
+  setGuest,
+  guests,
+  guestsNumber,
+}) => {
+  const { openSubMenuCityLinks, openSubMenuGuestLinks } = useGlobalContext()
+
   return (
     <>
       <form
@@ -19,9 +29,10 @@ const FormInput = () => {
             className='w-[100%] border-0 text-[#000] outline-none '
             type='text'
             placeholder='Helsinki, Finland'
+            onClick={openSubMenuCityLinks}
             name='city'
-            // value={city}
-            // onChange={(e) => setCity(e.target.value)}
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
           />
         </div>
 
@@ -33,12 +44,15 @@ const FormInput = () => {
             Guests
           </label>
           <input
-            className='w-[100%] border-0 text-[#000] outline-none '
+            className={`w-[100%] border-0 ${
+              guestsNumber === 0 ? 'text-[#BDBDBD]' : 'text-[#000]'
+            } outline-none `}
             type='text'
+            onClick={openSubMenuGuestLinks}
             placeholder='Add guests'
             name='guest'
-            // value={guest}
-            // onChange={(e) => setGuest(e.target.value)}
+            value={guestsNumber === 0 ? 'Add guests' : guestsNumber}
+            // onChange={(e) => setGuestsNumber(e.target.value)}
           />
         </div>
 

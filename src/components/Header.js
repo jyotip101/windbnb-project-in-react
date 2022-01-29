@@ -9,20 +9,18 @@ const items = [...new Set(Data.map((item) => item.city + ', ' + item.country))]
 const Header = () => {
   const { isSubMenuOpen, openSubMenu, closeSubMenu } = useGlobalContext()
   const [data, setData] = useState(Data)
-  const [city, setCity] = useState('')
-  const [guest, setGuest] = useState('')
 
   const submitHandler = (e) => {
     e.preventDefault()
-    if (city && guest) {
-      const tempBtn = e.target.getBoundingClientRect()
-      // openSubMenu()
-      console.log(tempBtn)
-      closeSubMenu()
-    } else {
-      console.log('error')
-      closeSubMenu()
-    }
+    // if (city && guest) {
+    //   const tempBtn = e.target.getBoundingClientRect()
+    //   // openSubMenu()
+    //   console.log(tempBtn)
+    //   closeSubMenu()
+    // } else {
+    //   console.log('error')
+    //   closeSubMenu()
+    // }
     closeSubMenu()
   }
   return (
@@ -34,9 +32,8 @@ const Header = () => {
           <img src={logo} alt='logo' />
         </div>
 
-        <form
+        <div
           onMouseOver={openSubMenu}
-          onSubmit={submitHandler}
           className='flex   transition  rounded-2xl border-0 m-1 shadow-md hover:shadow-none focus:shadow-none'
         >
           <input
@@ -44,23 +41,23 @@ const Header = () => {
             type='text'
             placeholder='Helsinki, Finland'
             name='city'
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
+            // value={city}
+            // onChange={(e) => setCity(e.target.value)}
           />
           <input
             className='md:w-32 w-full border-r-2 text-[#000]  outline-none  p-3 '
             type='text'
             placeholder='Add guests'
             name='guest'
-            value={guest}
-            onChange={(e) => setGuest(e.target.value)}
+            // value={guest}
+            // onChange={(e) => setGuest(e.target.value)}
           />
           <button className='flex  md:w-full justify-start outline-none  p-3  text-[#eb5757]'>
             <i className='material-icons'>search</i>
           </button>
-        </form>
+        </div>
       </div>
-      {isSubMenuOpen && <Submenus items={items} setCity={setCity} />}
+      {isSubMenuOpen && <Submenus items={items} />}
     </>
   )
 }

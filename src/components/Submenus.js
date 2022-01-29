@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FormInput from './FormInput'
 import { useGlobalContext } from './Context'
 
-const Submenus = ({ items, setCity }) => {
-  const { isSubMenuOpen, openSubMenu, closeSubMenu } = useGlobalContext()
+const Submenus = ({ items }) => {
+  const {
+    isSubMenuOpen,
+    openSubMenu,
+    closeSubMenu,
+    isSubMenuLinkCityOpen,
+    isSubMenuLinkGuestOpen,
+  } = useGlobalContext()
 
+  const [city, setCity] = useState('')
+  const [guest, setGuest] = useState('')
+  const [childNumber, setChildNumber] = useState(0)
+  const [adultsNumber, setAdultsNumber] = useState(0)
+  // const [guestsNumber, setGuestsNumber] = useState(adultsNumber + childNumber)
+
+  const checkNumberOfGuest = (num) => {
+    if (num < 1) {
+      num = 0
+    }
+    if (num >= 10) {
+      num = 10
+    }
+  }
   return (
     <>
       <div className='flex flex-col h-46 absolute top-0 left-0 w-full z-10 shadow  pt-8 bg-[#fff] p-4 transition-all '>
@@ -17,52 +37,102 @@ const Submenus = ({ items, setCity }) => {
         >
           <i className='material-icons  font-bold '>close</i>
         </button>
-        <FormInput />
+        <FormInput
+          city={city}
+          guest={guest}
+          setCity={setCity}
+          setGuest={setGuest}
+          guestsNumber={adultsNumber + childNumber}
+          // setGuestsNumber={setGuestsNumber}
+        />
         <div className='flex sm:flex-row flex-col ml-4 '>
           <div className='w-[50%] transition'>
-            {items.map((item, index) => {
-              return (
-                <button
-                  onClick={() => {
-                    setCity(item)
-                    // setGuest(item.split(', ')[1])
-                  }}
-                  key={index}
-                  className='text-[#4F4F4F] transition  my-8 w-max   flex cursor-pointer hover:text-[#eb5757]'
-                >
-                  <i className='material-icons  '>location_on</i>
-                  {item},
-                </button>
-              )
-            })}
+            {isSubMenuLinkCityOpen && (
+              <div className=''>
+                {items.map((item, index) => {
+                  return (
+                    <button
+                      onClick={() => {
+                        setCity(item)
+                        // setGuest(item.split(', ')[1])
+                      }}
+                      key={index}
+                      className='text-[#4F4F4F] transition  my-8 w-max   flex cursor-pointer hover:text-[#eb5757]'
+                    >
+                      <i className='material-icons  '>location_on</i>
+                      {item},
+                    </button>
+                  )
+                })}
+              </div>
+            )}
           </div>
-          <div className='w-[50%]'>
-            <div className=''>
-              <h1 className='font-medium text-[20px]'>Adults</h1>
-              <p className='text-[#0000004d]  '>13 or above</p>
-              <div className='my-4 flex w-fit items-center justify-center'>
-                <button className='text-[#828282] border-[1px] border-[#828282]  w-8 p-[0.2rem] rounded-[4px]   font-medium flex '>
-                  <i className='material-icons'>add</i>
-                </button>
-                <p className='m-2'>3</p>
-                <button className='text-[#828282] border-[1px] border-[#828282]  w-8 p-[0.2rem] rounded-[4px]   font-medium flex'>
-                  <i className='material-icons'>remove</i>
-                </button>
-              </div>
-            </div>
-            <div className=''>
-              <h1 className='font-medium text-[20px]'>Children</h1>
-              <p className='text-[#0000004d]'> Ages 2-12</p>
-              <div className='my-4 flex w-fit items-center justify-center'>
-                <button className='text-[#828282] border-[1px] border-[#828282]  w-8 p-[0.2rem] rounded-[4px]   font-medium flex '>
-                  <i className='material-icons'>add</i>
-                </button>
-                <p className='m-2'>2</p>
-                <button className='text-[#828282] border-[1px] border-[#828282]  w-8 p-[0.2rem] rounded-[4px]   font-medium flex'>
-                  <i className='material-icons'>remove</i>
-                </button>
-              </div>
-            </div>
+
+          <div className='md:w-[50%]  '>
+            {isSubMenuLinkGuestOpen && (
+              <>
+                <div className=' '>
+                  <h1 className='font-medium text-[20px]'>Adults</h1>
+                  <p className='text-[#0000004d]  '>13 or above</p>
+                  <div className='my-4 flex w-fit items-center justify-center'>
+                    <button
+                      className='text-[#828282] border-[1px] border-[#828282]  w-8 p-[0.2rem] rounded-[4px]   font-medium flex '
+                      onClick={() =>
+                        setAdultsNumber(
+                          adultsNumber >= 10
+                            ? (adultsNumber = 10)
+                            : adultsNumber + 1
+                        )
+                      }
+                    >
+                      <i className='material-icons'>add</i>
+                    </button>
+                    <p className='m-2'>{adultsNumber}</p>
+                    <button
+                      className='text-[#828282] border-[1px] border-[#828282]  w-8 p-[0.2rem] rounded-[4px]   font-medium flex'
+                      onClick={() =>
+                        setAdultsNumber(
+                          adultsNumber <= 0
+                            ? (adultsNumber = 0)
+                            : adultsNumber - 1
+                        )
+                      }
+                    >
+                      <i className='material-icons'>remove</i>
+                    </button>
+                  </div>
+                </div>
+                <div className=''>
+                  <h1 className='font-medium text-[20px]'>Children</h1>
+                  <p className='text-[#0000004d]'> Ages 2-12</p>
+                  <div className='my-4 flex w-fit items-center justify-center'>
+                    <button
+                      className='text-[#828282] border-[1px] border-[#828282]  w-8 p-[0.2rem] rounded-[4px]   font-medium flex '
+                      onClick={() =>
+                        setChildNumber(
+                          childNumber >= 10
+                            ? (childNumber = 10)
+                            : childNumber + 1
+                        )
+                      }
+                    >
+                      <i className='material-icons'>add</i>
+                    </button>
+                    <p className='m-2'>{childNumber}</p>
+                    <button
+                      className='text-[#828282] border-[1px] border-[#828282]  w-8 p-[0.2rem] rounded-[4px]   font-medium flex'
+                      onClick={() =>
+                        setChildNumber(
+                          childNumber <= 0 ? (childNumber = 0) : childNumber - 1
+                        )
+                      }
+                    >
+                      <i className='material-icons'>remove</i>
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
