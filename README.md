@@ -38,7 +38,7 @@ Windbnb App
 
 ## Overview
 
-This is a small version of Airbnb, I have used small amount of data to items.
+This is a small version of Airbnb, I have used small amount of data to display items.
 I use react [Context](https://reactjs.org/docs/context.html) API to pass data through the components.
 to open the filter drawer, I have used AND (&&) operator and also for hiding and showing the items.
 
