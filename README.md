@@ -42,7 +42,7 @@ This is a small version of Airbnb, I have used small amount of data to items.
 I use react [Context](https://reactjs.org/docs/context.html) API to pass data through the components.
 to open the filter drawer, I have used AND (&&) operator and also for hiding and showing the items.
 
-ou can filter items by city name and also base on the number of guests,
+you can filter items by city name and also base on the number of guests,
 you can filter only by city name or only by the number of guests or using both city name and number of guest.
 
 I hava use a [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) to set condition that number of gest can be zero or the max number of guests will be 10, in this project max number of guests is 10.
