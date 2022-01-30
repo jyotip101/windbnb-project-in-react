@@ -95,8 +95,11 @@ $ npm install
 $ npm start
 ```
 
-## Acknowledgements
+<!-- ## Acknowledgements -->
 
 <!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
 
 ## Contact
+
+- GitHub [@jyotip101](https://github.com/jyotip101)
+- Twitter [@jyotipatil77100](https://twitter.com/jyotipatil77100)

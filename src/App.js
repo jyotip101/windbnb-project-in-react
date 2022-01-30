@@ -11,7 +11,7 @@ function App() {
         <footer className='m-4 text-center'>
           created by-{' '}
           <a
-            href='http://'
+            href='https://github.com/jyotip101/windbnb-project-in-react'
             className='text-[#eb5757]  underline hover:no-underline hover:transition-al'
             target='_blank'
             rel='noopener noreferrer'

@@ -12,7 +12,10 @@ const Header = () => {
   return (
     <>
       <div className='flex flex-col md:flex-row justify-between m-4 bg-[#fff]'>
-        <a href='/' className='p-3'>
+        <a
+          href='https://jyotip101.github.io/windbnb-project-in-react/'
+          className='p-3'
+        >
           <img src={logo} alt='logo' />
         </a>
 
