@@ -14,9 +14,9 @@ Windbnb App
       Demo
     </a>
     <span> | </span>
-    <!-- <a href="https://{your-url-to-the-solution}"> -->
+    <a href="https://devchallenges.io/solutions/2o52GEywcmglzAzLvrW4">
       Solution
-    <!-- </a> -->
+    </a>
     <span> | </span>
     <a href="https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD">
       Challenge
@@ -32,8 +32,7 @@ Windbnb App
   - [Built With](#built-with)
 - [Features](#features)
 - [How to use](#how-to-use)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
+- [Contact](#contact) 
 
 <!-- OVERVIEW -->
 
