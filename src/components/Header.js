@@ -12,9 +12,9 @@ const Header = () => {
   return (
     <>
       <div className='flex flex-col md:flex-row justify-between m-4 bg-[#fff]'>
-        <div className='p-3'>
+        <a href='/' className='p-3'>
           <img src={logo} alt='logo' />
-        </div>
+        </a>
 
         <div
           onMouseOver={openSubMenu}

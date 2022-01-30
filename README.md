@@ -1,9 +1,7 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">  
-    
-![logo](https://user-images.githubusercontent.com/66724598/151010226-efd162e6-3856-4b6d-b718-1d7a9fb4fda5.png)
-
+<h1 align="center">   
+Windbnb App
 </h1>
 
 <div align="center">
@@ -12,7 +10,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://http://jyotip101.github.io/windbnb-project-in-react">
+    <a href="https://jyotip101.github.io/windbnb-project-in-react/">
       Demo
     </a>
     <span> | </span>
@@ -25,7 +23,7 @@
     </a>
   </h3>
 </div>
-
+ 
 <!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
@@ -41,7 +39,24 @@
 
 ## Overview
 
-<!--
+This is a small version of Airbnb, I have used small amount of data to items.
+I use react [Context](https://reactjs.org/docs/context.html) API to pass data through the components.
+to open the filter drawer, I have used AND (&&) operator and also for hiding and showing the items.
+
+ou can filter items by city name and also base on the number of guests,
+you can filter only by city name or only by the number of guests or using both city name and number of guest.
+
+I hava use a [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) to set condition that number of gest can be zero or the max number of guests will be 10, in this project max number of guests is 10.
+
+![Windbnb-App-1](https://user-images.githubusercontent.com/66724598/151699065-a5d7275b-42ec-4742-8fc6-1966afaea5ae.png)
+![Windbnb-App-2](https://user-images.githubusercontent.com/66724598/151699067-6188cd23-7932-4ee6-958b-163aab4025a4.png)
+![Windbnb-App-3](https://user-images.githubusercontent.com/66724598/151699071-6355fd00-93c7-4d59-b8e3-d6cfcc41d6d2.png)
+![Windbnb-App-m-1](https://user-images.githubusercontent.com/66724598/151699077-6b1c0479-2936-48ac-89f9-cde6499a83c4.png)
+![Windbnb-App-m-2](https://user-images.githubusercontent.com/66724598/151699095-8888f2f4-9f91-4e91-abe1-13ffa930cf91.png)
+![Windbnb-App-m-3](https://user-images.githubusercontent.com/66724598/151699203-bc088fc3-ffbf-4c27-afcd-204a0d09f660.png)
+
+<!--![Windbnb-App-m-1](https://user-images.githubusercontent.com/66724598/151699078-a2b4ed45-bae7-41c5-9441-f05318a71ded.png)
+
 Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
 
 - Where can I see your demo?

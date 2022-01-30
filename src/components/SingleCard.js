@@ -11,7 +11,7 @@ const SingleCard = ({ item }) => {
       <div className='flex flex-row justify-between  my-3'>
         <div className='flex   justify-center items-center'>
           {superHost && (
-            <p className=' border-[1px] border-[#000]  w-fit p-4 py-1 mr-1 rounded-2xl font-medium uppercase'>
+            <p className=' border-[1px] border-[#000]  w-fit p-4 py-1 mr-1 rounded-2xl text-[100%] font-medium uppercase'>
               super Host
             </p>
           )}
