@@ -10,7 +10,7 @@ Windbnb App
 
 <div align="center">
   <h3>
-    <a href="https://jyotip101.github.io/windbnb-project-in-react/">
+    <a href="https://thejyotipatel.github.io/windbnb-project-in-react/">
       Demo
     </a>
     <span> | </span>
