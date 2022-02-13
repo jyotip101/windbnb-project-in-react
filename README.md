@@ -100,5 +100,5 @@ $ npm start
 
 ## Contact
 
-- GitHub [@jyotip101](https://github.com/jyotip101)
-- Twitter [@jyotipatil77100](https://twitter.com/jyotipatil77100)
+- GitHub [@thejyotipatel](https://github.com/thejyotipatel)
+- Twitter [@thejyotipatel](https://twitter.com/thejyotipatel)
